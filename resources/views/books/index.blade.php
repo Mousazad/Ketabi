@@ -1579,7 +1579,7 @@
 						<div class="alert alert-danger">
 							<ul>
 							@foreach ($errors->all() as $error)
-								<li style="color:red">{{ $error }}</li>
+								<li dir='rtl' style="color:red">{{ $error }}</li>
 							@endforeach
 							</ul>
 						</div>

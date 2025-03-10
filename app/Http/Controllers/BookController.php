@@ -28,7 +28,7 @@ class BookController extends Controller
         ],
 		[
         'title.required' => 'You have to have a title!',
-        'publication_year.min' => 'سال انتشار حداق 1 باشد.'
+        'publication_year.min' => 'سال انتشار حداقل 1 باشد.'
     ]);
 
         $book = Book::create(['title' => $request->title, 'publication_year' => $request->publication_year]);
