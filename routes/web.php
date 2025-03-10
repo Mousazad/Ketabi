@@ -20,7 +20,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/book/{id}', [BookController::class, 'show'])->name('book.show')->middleware('auth');
+Route::get('/book/{book}', [BookController::class, 'show'])->name('book.show')->middleware('auth');
 
 Route::post('/books/create', [BookController::class, 'create'])->name('book.create')->middleware('auth');
 

@@ -12,9 +12,8 @@ class BookController extends Controller
         return view('books.index', ['books' => $A]);
     }
 
-    public function show($id)
+    public function show(Book $book)
     {
-        $book = Book::find($id);
         if (! $book) {
             return abort(404);
         }
@@ -26,7 +25,11 @@ class BookController extends Controller
         $validated = $request->validate([
             'title'            => 'required|string|max:255',
             'publication_year' => 'required|int|min:0',
-        ]);
+        ],
+		[
+        'title.required' => 'You have to have a title!',
+        'publication_year.min' => 'سال انتشار حداق 1 باشد.'
+    ]);
 
         $book = Book::create(['title' => $request->title, 'publication_year' => $request->publication_year]);
         return redirect()->back();
