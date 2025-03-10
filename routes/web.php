@@ -1,15 +1,14 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BookController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/books', [BookController::class, 'index'])->middleware('auth');
-
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -21,4 +20,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+Route::get('/book/{id}', [BookController::class, 'show'])->name('book.show')->middleware('auth');
+
+Route::post('/books/create', [BookController::class, 'create'])->name('book.create')->middleware('auth');
+
+require __DIR__ . '/auth.php';
