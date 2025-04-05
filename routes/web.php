@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\EnsureUserIsAnAdmin;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,6 +23,6 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/book/{book}', [BookController::class, 'show'])->name('book.show')->middleware('auth');
 
-Route::post('/books/create', [BookController::class, 'create'])->name('book.create')->middleware('auth');
+Route::post('/books/create', [BookController::class, 'create'])->name('book.create')->middleware(['auth',EnsureUserIsAnAdmin::class]);
 
 require __DIR__ . '/auth.php';
