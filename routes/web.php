@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\EnsureUserIsAnAdmin;
@@ -8,8 +9,6 @@ use App\Http\Middleware\EnsureUserIsAnAdmin;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/books', [BookController::class, 'index'])->middleware('auth');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -21,8 +20,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/book/{book}', [BookController::class, 'show'])->name('book.show')->middleware('auth');
-
+Route::get('/books', [BookController::class, 'index']);
+Route::get('/book/{book}', [BookController::class, 'show'])->name('book.show');
 Route::post('/books/create', [BookController::class, 'create'])->name('book.create')->middleware(['auth',EnsureUserIsAnAdmin::class]);
+
+Route::get('/authors', [AuthorController::class, 'index']);
+Route::get('/author/{author}', [AuthorController::class, 'show'])->name('author.show');
+Route::post('/authors/create', [AuthorController::class, 'create'])->name('author.create')->middleware(['auth',EnsureUserIsAnAdmin::class]);
+
 
 require __DIR__ . '/auth.php';
