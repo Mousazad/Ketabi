@@ -12,8 +12,9 @@ class BookController extends Controller
         return view('books.index', ['books' => $A]);
     }
 
-    public function show(Book $book)
+    public function show($book)
     {
+        $book = Book::with('authors')->find($book);
         if (! $book) {
             return abort(404);
         }
