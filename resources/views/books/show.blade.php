@@ -29,8 +29,21 @@
                     </li>
                 </ul>
                 <h2>List of Authors:</h2>
+                <table class="w-full">
                 @foreach ($book->authors as $author)
-                    <p>{{$author->name}}</p>
+                    <tr class="flex items-center justify-between w-full gap-3">
+                        <td class="line-clamp-1">
+                            <a class="text-blue-500" href="/author/{{$author->id}}">{{$author->name}}</a>
+                        </td>
+                        @auth
+                        @if(auth()->user()->role == 'admin')
+                        <td>
+                            <a href="/book/{{$book->id}}/remove_author/{{$author->id}}"><button class="bg-red-500 text-white rounded p-1 hover:bg-red-800 px-2">remove</button></a>
+                        </td>
+                        @endif
+                        @endauth
+                    </tr>
                 @endforeach
+                </table>
 
 @endsection

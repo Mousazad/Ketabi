@@ -28,11 +28,21 @@ class BookController extends Controller
             'publication_year' => 'required|int|min:0',
         ],
 		[
-        'title.required' => 'You have to have a title!',
-        'publication_year.min' => 'سال انتشار حداقل 1 باشد.'
-    ]);
+            'title.required' => 'You have to have a title!',
+            'publication_year.min' => 'سال انتشار حداقل 1 باشد.'
+        ]);
 
         $book = Book::create(['title' => $request->title, 'publication_year' => $request->publication_year]);
+        return redirect()->back();
+    }
+
+    public function removeAuthor($book, $author)
+    {  
+        $book = Book::find($book);
+        if (! $book) {
+            return abort(404);
+        }
+        $book->authors()->detach($author);
         return redirect()->back();
     }
 
