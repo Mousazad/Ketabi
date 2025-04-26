@@ -45,5 +45,14 @@ class BookController extends Controller
         $book->authors()->detach($author);
         return redirect()->back();
     }
+    public function destroy($book)
+    {
+        $book = Book::with('authors')->find($book);
+        if (! $book) {
+            return abort(404);
+        }
+        $book->delete();
+        return redirect("/books");
+    }
 
 }

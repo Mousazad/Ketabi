@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/books', [BookController::class, 'index']);
 Route::get('/book/{book}', [BookController::class, 'show'])->name('book.show');
 Route::post('/books/create', [BookController::class, 'create'])->name('book.create')->middleware(['auth',EnsureUserIsAnAdmin::class]);
+Route::get('/book/{book}/delete', [BookController::class, 'destroy'])->name('book.destroy');
 
 Route::get('/book/{book}/remove_author/{author}', [BookController::class, 'removeAuthor'])->name('book.removeAuthor')->middleware(['auth',EnsureUserIsAnAdmin::class]);
 

@@ -28,6 +28,14 @@
                         </p>
                     </li>
                 </ul>
+                @auth
+                @if(auth()->user()->role == 'admin')
+                <div class="flex w-full gap-5 pb-2">
+                    <a href="/book/{{$book->id}}/edit"><button class="border-2 rounded p-1 hover:shadow-md px-2">edit book</button></a>
+                    <a href="/book/{{$book->id}}/delete"><button class="border-2 border-red-500 text-red-500 rounded p-1 hover:shadow-md px-2">delete book</button></a>
+                </div>
+                @endif
+                @endauth
                 <h2>List of Authors:</h2>
                 <table class="w-full">
                 @foreach ($book->authors as $author)
