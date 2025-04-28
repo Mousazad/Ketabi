@@ -32,7 +32,7 @@
                 @if(auth()->user()->role == 'admin')
                 <div class="flex w-full gap-5 pb-2">
                     <a href="/book/{{$book->id}}/edit"><button class="border-2 rounded p-1 hover:shadow-md px-2">edit book</button></a>
-                    <a href="/book/{{$book->id}}/delete"><button class="border-2 border-red-500 text-red-500 rounded p-1 hover:shadow-md px-2">delete book</button></a>
+                    <a href="/book/{{$book->id}}/delete"><button onclick="return confirm('Are you sure you want to delete this item?');" class="border-2 border-red-500 text-red-500 rounded p-1 hover:shadow-md px-2">delete book</button></a>
                 </div>
                 @endif
                 @endauth
@@ -43,13 +43,6 @@
                         <td class="line-clamp-1">
                             <a class="text-blue-500" href="/author/{{$author->id}}">{{$author->name}}</a>
                         </td>
-                        @auth
-                        @if(auth()->user()->role == 'admin')
-                        <td>
-                            <a href="/book/{{$book->id}}/remove_author/{{$author->id}}"><button class="bg-red-500 text-white rounded p-1 hover:bg-red-800 px-2">remove</button></a>
-                        </td>
-                        @endif
-                        @endauth
                     </tr>
                 @endforeach
                 </table>

@@ -25,7 +25,12 @@ Route::get('/book/{book}', [BookController::class, 'show'])->name('book.show');
 Route::post('/books/create', [BookController::class, 'create'])->name('book.create')->middleware(['auth',EnsureUserIsAnAdmin::class]);
 Route::get('/book/{book}/delete', [BookController::class, 'destroy'])->name('book.destroy')->middleware(['auth',EnsureUserIsAnAdmin::class]);
 
+Route::get('/book/{book}/edit', [BookController::class, 'edit'])->name('book.edit')->middleware(['auth',EnsureUserIsAnAdmin::class]);
+Route::post('/book/{book}/update', [BookController::class, 'update'])->name('book.update')->middleware(['auth',EnsureUserIsAnAdmin::class]);
+
+
 Route::get('/book/{book}/remove_author/{author}', [BookController::class, 'removeAuthor'])->name('book.removeAuthor')->middleware(['auth',EnsureUserIsAnAdmin::class]);
+Route::get('/book/{book}/add_author/{author}', [BookController::class, 'addAuthor'])->name('book.addAuthor')->middleware(['auth',EnsureUserIsAnAdmin::class]);
 
 Route::get('/authors', [AuthorController::class, 'index']);
 Route::get('/author/{author}', [AuthorController::class, 'show'])->name('author.show');
