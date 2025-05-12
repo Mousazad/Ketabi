@@ -6,6 +6,7 @@
 
 @section('content')
                 <h1 class="mb-1 font-medium">Information about {{ $book->title }}</h1>
+                @if($book->cover_file != null)<img src={{ $book->cover_file }} alt= "Book Cover" width="400">@endif
                 <ul class="flex flex-col mb-4 lg:mb-6">
                     <li>
                         <p>

@@ -28,10 +28,11 @@ Books
                 </ul>
                 @auth
                 @if(auth()->user()->role == 'admin')
-                    <form action="/books/create" method="post" class="flex gap-2 flex-col">
+                    <form action="/books/create" method="post" class="flex gap-2 flex-col" enctype="multipart/form-data">
                         @csrf
                         <input type="text" name="title" placeholder="Title">
                         <input type="text" name="publication_year" placeholder="Publication Year">
+                        <input class="form-control" type="file" name="cover_file" placeholder="cover file">
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>

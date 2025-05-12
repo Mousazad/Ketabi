@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Author;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 class BookController extends Controller
 {
     public function index()
@@ -27,13 +27,25 @@ class BookController extends Controller
         $validated = $request->validate([
             'title'            => 'required|string|max:255',
             'publication_year' => 'required|int|min:0',
+            'cover_file' => 'mimes:jpg,jpeg,gif,bmp,png|max:2048',            
         ],
 		[
             'title.required' => 'You have to have a title!',
-            'publication_year.min' => 'سال انتشار حداقل 1 باشد.'
+            'publication_year.min' => 'سال انتشار حداقل 1 باشد.',
+            'cover_file.max' => 'حداکثر اندازه فایل 2048 بایت است.',
+            'cover_file.mimes' => 'فقط فایل با پسوند jpg، jpeg، gif، bmp و png قابل قبول است.'
         ]);
 
-        $book = Book::create(['title' => $request->title, 'publication_year' => $request->publication_year]);
+
+        $coverfile = $request->file('cover_file');
+		$filename = $coverfile->getClientOriginalName();
+		$newfilename = sha1(time() . rand(1000000, 9999999) . $filename) . '.' . $coverfile->extension();
+		Storage::putFileAs('/covers', $coverfile, $newfilename,  'public');
+
+        $book = Book::create([  'title' => $request->title,
+                                            'publication_year' => $request->publication_year,
+                                            'cover_file' => '/storage/covers/'.$newfilename
+                                        ]);
         return redirect()->back();
     }
 
