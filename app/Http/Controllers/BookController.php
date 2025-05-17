@@ -5,6 +5,8 @@ use App\Models\Book;
 use App\Models\Author;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Gate;
+
 class BookController extends Controller
 {
     public function index()
@@ -44,6 +46,7 @@ class BookController extends Controller
 
         $book = Book::create([  'title' => $request->title,
                                             'publication_year' => $request->publication_year,
+                                            'add_by' => auth()->user()->id,
                                             'cover_file' => '/storage/covers/'.$newfilename
                                         ]);
         return redirect()->back();
@@ -90,10 +93,25 @@ class BookController extends Controller
     
     public function update(Request $request, $book)
     {
-        $book = Book::find($book);
+        $book = Book::with('addBy')->find($book);
         if (! $book) {
             return abort(404);
         }
+
+        //Direct Authorization
+        //if( $book->addBy->id != auth()->user()->id )
+        //    return abort(403);
+
+        //Authorization by Gate
+        //if (! Gate::allows('update-book', $book)) {
+        //    abort(403);
+        //}
+
+        //Authorization by Policy
+        if ($request->user()->cannot('update', $book)) {
+            abort(403);
+        }
+
 
         $validated = $request->validate([
             'title'            => 'required|string|max:255',

@@ -18,6 +18,11 @@
                             Publication Year : {{ $book->publication_year }}
                         </p>
                     </li>
+                     <li>
+                        <p>
+                            Add By : {{ $book->addBy->name }}
+                        </p>
+                    </li>
                     <li>
                         <p>
                             Created At : {{ $book->created_at }}
