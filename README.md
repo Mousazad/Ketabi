@@ -2,7 +2,7 @@
 
 این پروژه درس مباحث ویژه ۲ است.
 
-[لینک مطالب گفته‌شده در کلاس](https://enchanted-bite-6e1.notion.site/Laravel-19b2f549e04480beb13bc5cc82a75460
+[لینک مطالب گفته‌ شده در کلاس](https://enchanted-bite-6e1.notion.site/Laravel-19b2f549e04480beb13bc5cc82a75460
 )
 
 ## پروژه دانشجویان:
