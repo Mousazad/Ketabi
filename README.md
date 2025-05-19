@@ -10,6 +10,6 @@
 ۱- نگار کرامت نیا: [سامانه پشتیبانی مرکز انفورماتیک](https://github.com/negarkeramatnia/Informatics_Center_Support_System
 )
 
-۲- فرید جوهری: [شیرینی گوهری](https://github.com/FaridG7/gohari-pastry
+۲- فرید گوهری: [شیرینی گوهری](https://github.com/FaridG7/gohari-pastry
 )
 
