@@ -18,3 +18,8 @@
 
 ۶- محمد شرنگ: [پرونت، شبکه اجتماعی شرکت محور](https://github.com/Mmdshorang/pronet2) + [فرانت](https://github.com/Mmdshorang/pronetfront)
 
+۷- امیرحسین حوری: [سامانه اشتراک منابع آموزشی](https://github.com/amir18160/jozveh-dan-server)
+
+۸- حسین مقدس پور: [سامانه ثبت كارآموزي دانشجويان](https://github.com/HosseinMoghadaspour/Internship)
+
+۹- حسین مقدس پور: [سامانه ثبت كارآموزي دانشجويان](https://github.com/HosseinMoghadaspour/Internship)
