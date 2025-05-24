@@ -20,6 +20,6 @@
 
 ۷- امیرحسین حوری: [سامانه اشتراک منابع آموزشی](https://github.com/amir18160/jozveh-dan-server)
 
-۸- حسین مقدس پور: [سامانه ثبت كارآموزي دانشجويان](https://github.com/HosseinMoghadaspour/Internship)
+۸- دانیال رویشد: [سامانه مدیریت تاکسی اکتشافات نفت](https://github.com/roveished/taxi_managment)
 
-۹- حسین مقدس پور: [سامانه ثبت كارآموزي دانشجويان](https://github.com/HosseinMoghadaspour/Internship)
+۹- علیرضا مقدس پور: [سامانه برخط سفارش غذا](https://github.com/Virtualireza/ManiaFood)
