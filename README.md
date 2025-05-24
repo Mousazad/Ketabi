@@ -16,10 +16,10 @@
 
 ۵- حسین مقدس پور: [سامانه ثبت كارآموزي دانشجويان](https://github.com/HosseinMoghadaspour/Internship)
 
-۶- محمد شرنگ: [پرونت، شبکه اجتماعی شرکت محور](https://github.com/Mmdshorang/pronet2) + [فرانت](https://github.com/Mmdshorang/pronetfront)
+۶- محمد شرنگ: [پرونت: شبکه اجتماعی شرکت محور](https://github.com/Mmdshorang/pronet2) + [فرانت](https://github.com/Mmdshorang/pronetfront)
 
 ۷- امیرحسین حوری: [سامانه اشتراک منابع آموزشی](https://github.com/amir18160/jozveh-dan-server)
 
 ۸- دانیال رویشد: [سامانه مدیریت تاکسی اکتشافات نفت](https://github.com/roveished/taxi_managment)
 
-۹- علیرضا مقدس پور: [سامانه برخط سفارش غذا](https://github.com/Virtualireza/ManiaFood)
+۹- علیرضا مقدس پور: [مانیا: سامانه برخط سفارش غذا](https://github.com/Virtualireza/ManiaFood)
