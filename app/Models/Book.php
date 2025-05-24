@@ -7,9 +7,10 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Book extends Model
 {
+    use HasFactory;
     protected $fillable = ['title','publication_year','add_by','cover_file'];
     public function authors():BelongsToMany
     {

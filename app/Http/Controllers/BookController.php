@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\Gate;
 
 class BookController extends Controller
 {
+
+    public function factorial($N): int{
+        $f = 1;
+        for($i=2;$i<=$N;$i++){
+            $f *= $i;
+        }
+        return $f;
+    }
     public function index()
     {
         $A = Book::all();
