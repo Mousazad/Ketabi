@@ -90,6 +90,7 @@ Books
                                 td2.innerHTML = `<a href="/book/${bookId}/remove_author/${authorId}"><button class="bg-red-500  w-16 text-white rounded p-1 hover:bg-red-800 px-2">remove</button></a>`;
 
                                 tr = document.createElement("tr");
+                                tr.classList.add("text-blue-500","line-clamp-1","flex", "items-center", "justify-between", "w-full", "gap-3");
                                 tr.appendChild(td1);
                                 tr.appendChild(td2);
 
