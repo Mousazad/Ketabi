@@ -73,10 +73,10 @@ class BookController extends Controller
     {  
         $book = Book::find($book);
         if (! $book) {
-            return abort(404);
+            return "Failed";
         }
         $book->authors()->attach($author);
-        return redirect()->back();
+        return "OK";
     }
     public function destroy($book)
     {

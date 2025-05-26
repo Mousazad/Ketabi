@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Author;
+use App\Models\Book;
 use Illuminate\Http\Request;
 use Morilog\Jalali\Jalalian;
 
@@ -11,6 +12,17 @@ class AuthorController extends Controller
     {
         $A = Author::all();
         return view('authors.index', ['authors' => $A]);
+    }
+
+    public function search(Request $request){
+        $book = Book::find($request->book_id);
+        $key = $request->key;
+
+        $result = Author::whereNotIn('id', $book->authors->pluck('id'))
+                            ->where('name','like','%'.$key.'%')
+                            ->get();
+
+        return $result;
     }
 
     public function show(Author $author)
